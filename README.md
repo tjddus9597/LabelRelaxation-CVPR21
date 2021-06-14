@@ -58,8 +58,9 @@ sh scripts/download_pretrained_source_models.sh
 ### Training Target Embedding Network with Relaxed Contrastive Loss
 #### 1. Self-transfer Setting
 
-- **Self-transfer**: Transfer to a model with the same architecture and embedding dimension for performance improvement. \
-- Transfer the knowledge of source embedding network (Inception-BN, 512 dim) to target embedding network (Inception-BN, 512 dim) using **Relaxed Contrastive Loss**.
+**Self-transfer**: Transfer to a model with the same architecture and embedding dimension for performance improvement. 
+
+Transfer the knowledge of source embedding network (Inception-BN, 512 dim) to target embedding network (Inception-BN, 512 dim) using **Relaxed Contrastive Loss**.
 
 - CUB-200-2011
 
@@ -103,7 +104,8 @@ python code/train_target.py --gpu-id 0 --loss Relaxed_Contra --model bn_inceptio
 
 #### 2. Dimensionality Reduction Setting
 
-**Dimensionality reduction**: Transfer to the same architecture with a lower embedding dimension for efficient image retrieval. \
+**Dimensionality reduction**: Transfer to the same architecture with a lower embedding dimension for efficient image retrieval. 
+
 Transfer the knowledge of source embedding network (Inception-BN, 512 dim) to target embedding network (Inception-BN, 64 dim) using **Relaxed Contrastive Loss**.
 
 - CUB-200-2011
@@ -147,7 +149,8 @@ python code/train_target.py --gpu-id 0 --loss Relaxed_Contra --model bn_inceptio
 
 #### 3. Model compression Setting
 
-**Model compression**: Transfer to a smaller network with a lower embedding dimension for usage in low-power and resource limited devices \
+**Model compression**: Transfer to a smaller network with a lower embedding dimension for usage in low-power and resource limited devices 
+
 Transfer the knowledge of source embedding network (ResNet50, 512 dim) to target embedding network (ResNet18, 128 dim) using **Relaxed Contrastive Loss**.
 
 - CUB-200-2011
