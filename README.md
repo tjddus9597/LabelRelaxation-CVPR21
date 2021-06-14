@@ -55,8 +55,8 @@ sh scripts/download_pretrained_source_models.sh
 
 ## Training Target Embedding Network with Relaxed Contrastive Loss
 ### Self-transfer Setting
-- Transfer the knowledge of source model to target model with the same architecture and embedding dimension for performance improvement.
-- Source Embedding Network (Inception-BN, 512 dim) 🠢 Target Embedding Network (Inception-BN, 512 dim)
+Transfer the knowledge of source model to target model with the same architecture and embedding dimension for performance improvement. \
+Source Embedding Network (Inception-BN, 512 dim) 🠢 Target Embedding Network (Inception-BN, 512 dim)
 
 #### CUB-200-2011
 
@@ -218,8 +218,8 @@ python code/train_target.py --gpu-id 0 --loss Relaxed_Contra --model bn_inceptio
 
 ### Dimensionality Reduction Setting
 
-- Transfer to the same architecture with a lower embedding dimension for efficient image retrieval. 
-- Source Embedding Network (Inception-BN, 512 dim) 🠢 Target Embedding Network (Inception-BN, 64 dim)
+Transfer to the same architecture with a lower embedding dimension for efficient image retrieval. \
+Source Embedding Network (Inception-BN, 512 dim) 🠢 Target Embedding Network (Inception-BN, 64 dim)
 
 #### CUB-200-2011
 
@@ -259,7 +259,7 @@ python code/train_target.py --gpu-id 0 --loss Relaxed_Contra --model bn_inceptio
 </thead>
 <tbody>
 <tr>
-<td>Method</td>
+<td align="center">Method</td>
 <td align="center">Backbone</td>
 <td align="center">R@1</td>
 <td align="center">R@2</td>
@@ -272,7 +272,7 @@ python code/train_target.py --gpu-id 0 --loss Relaxed_Contra --model bn_inceptio
 <td align="center">R@4</td>
 </tr>
 <tr>
-<td><em>Source</em>: PA</td>
+<td align="center"><em>Source</em>: PA</td>
 <td align="center">BN<sup>512</sup></td>
 <td align="center">69.1</td>
 <td align="center">78.9</td>
@@ -285,7 +285,7 @@ python code/train_target.py --gpu-id 0 --loss Relaxed_Contra --model bn_inceptio
 <td align="center">96.2</td>
 </tr>
 <tr>
-<td>FitNet</td>
+<td align="center">FitNet</td>
 <td align="center">BN<sup>64</sup></td>
 <td align="center">62.3</td>
 <td align="center">73.8</td>
@@ -298,7 +298,7 @@ python code/train_target.py --gpu-id 0 --loss Relaxed_Contra --model bn_inceptio
 <td align="center"><strong>95.4</strong></td>
 </tr>
 <tr>
-<td>Attention</td>
+<td align="center">Attention</td>
 <td align="center">BN<sup>64</sup></td>
 <td align="center">58.3</td>
 <td align="center">69.4</td>
@@ -311,7 +311,7 @@ python code/train_target.py --gpu-id 0 --loss Relaxed_Contra --model bn_inceptio
 <td align="center">95.4</td>
 </tr>
 <tr>
-<td>CRD</td>
+<td align="center">CRD</td>
 <td align="center">BN<sup>64</sup></td>
 <td align="center">60.9</td>
 <td align="center">72.7</td>
@@ -324,7 +324,7 @@ python code/train_target.py --gpu-id 0 --loss Relaxed_Contra --model bn_inceptio
 <td align="center">95.3</td>
 </tr>
 <tr>
-<td>DarkRank</td>
+<td align="center">DarkRank</td>
 <td align="center">BN<sup>64</sup></td>
 <td align="center">63.5</td>
 <td align="center">74.3</td>
@@ -337,7 +337,7 @@ python code/train_target.py --gpu-id 0 --loss Relaxed_Contra --model bn_inceptio
 <td align="center">94.8</td>
 </tr>
 <tr>
-<td>PKT</td>
+<td align="center">PKT</td>
 <td align="center">BN<sup>64</sup></td>
 <td align="center">63.6</td>
 <td align="center">75.8</td>
@@ -350,7 +350,7 @@ python code/train_target.py --gpu-id 0 --loss Relaxed_Contra --model bn_inceptio
 <td align="center">94.2</td>
 </tr>
 <tr>
-<td>RKD</td>
+<td align="center">RKD</td>
 <td align="center">BN<sup>64</sup></td>
 <td align="center">65.8</td>
 <td align="center">76.7</td>
@@ -363,7 +363,7 @@ python code/train_target.py --gpu-id 0 --loss Relaxed_Contra --model bn_inceptio
 <td align="center">92.1</td>
 </tr>
 <tr>
-<td><strong>Ours</strong></td>
+<td align="center"><strong>Ours</strong></td>
 <td align="center">BN<sup>64</sup></td>
 <td align="center"><strong>67.4</strong></td>
 <td align="center"><strong>78.0</strong></td>
@@ -379,8 +379,8 @@ python code/train_target.py --gpu-id 0 --loss Relaxed_Contra --model bn_inceptio
 </table>
 
 ### 3. Model compression Setting
-- Transfer to a smaller network with a lower embedding dimension for usage in low-power and resource limited devices.
-- Source Embedding Network (ResNet50, 512 dim) 🠢 Target Embedding Network (ResNet18, 128 dim)
+Transfer to a smaller network with a lower embedding dimension for usage in low-power and resource limited devices. \
+Source Embedding Network (ResNet50, 512 dim) 🠢 Target Embedding Network (ResNet18, 128 dim)
 
 #### CUB-200-2011
 
@@ -420,7 +420,7 @@ python code/train_target.py --gpu-id 0 --loss Relaxed_Contra --model resnet18 \
 </thead>
 <tbody>
 <tr>
-<td>Method</td>
+<td align="center">Method</td>
 <td align="center">Backbone</td>
 <td align="center">R@1</td>
 <td align="center">R@2</td>
@@ -433,7 +433,7 @@ python code/train_target.py --gpu-id 0 --loss Relaxed_Contra --model resnet18 \
 <td align="center">R@4</td>
 </tr>
 <tr>
-<td><em>Source</em>: PA</td>
+<td align="center"><em>Source</em>: PA</td>
 <td align="center">R50<sup>512</sup></td>
 <td align="center">69.9</td>
 <td align="center">79.6</td>
@@ -446,7 +446,7 @@ python code/train_target.py --gpu-id 0 --loss Relaxed_Contra --model resnet18 \
 <td align="center">98.8</td>
 </tr>
 <tr>
-<td>FitNet</td>
+<td align="center">FitNet</td>
 <td align="center">R18<sup>128</sup></td>
 <td align="center">61.0</td>
 <td align="center">72.2</td>
@@ -459,7 +459,7 @@ python code/train_target.py --gpu-id 0 --loss Relaxed_Contra --model resnet18 \
 <td align="center">95.5</td>
 </tr>
 <tr>
-<td>Attention</td>
+<td align="center">Attention</td>
 <td align="center">R18<sup>128</sup></td>
 <td align="center">61.0</td>
 <td align="center">71.7</td>
@@ -472,7 +472,7 @@ python code/train_target.py --gpu-id 0 --loss Relaxed_Contra --model resnet18 \
 <td align="center">95.5</td>
 </tr>
 <tr>
-<td>CRD</td>
+<td align="center">CRD</td>
 <td align="center">R18<sup>128</sup></td>
 <td align="center">62.8</td>
 <td align="center">73.8</td>
@@ -485,7 +485,7 @@ python code/train_target.py --gpu-id 0 --loss Relaxed_Contra --model resnet18 \
 <td align="center">95.3</td>
 </tr>
 <tr>
-<td>DarkRank</td>
+<td align="center">DarkRank</td>
 <td align="center">R18<sup>128</sup></td>
 <td align="center">61.2</td>
 <td align="center">72.5</td>
@@ -498,7 +498,7 @@ python code/train_target.py --gpu-id 0 --loss Relaxed_Contra --model resnet18 \
 <td align="center">94.5</td>
 </tr>
 <tr>
-<td>PKT</td>
+<td align="center">PKT</td>
 <td align="center">R18<sup>128</sup></td>
 <td align="center">65.0</td>
 <td align="center">75.6</td>
@@ -511,7 +511,7 @@ python code/train_target.py --gpu-id 0 --loss Relaxed_Contra --model resnet18 \
 <td align="center">95.5</td>
 </tr>
 <tr>
-<td>RKD</td>
+<td align="center">RKD</td>
 <td align="center">R18<sup>128</sup></td>
 <td align="center">65.8</td>
 <td align="center">76.3</td>
@@ -524,7 +524,7 @@ python code/train_target.py --gpu-id 0 --loss Relaxed_Contra --model resnet18 \
 <td align="center">95.1</td>
 </tr>
 <tr>
-<td><strong>Ours</strong></td>
+<td align="center"><strong>Ours</strong></td>
 <td align="center">R18<sup>128</sup></td>
 <td align="center"><strong>66.6</strong></td>
 <td align="center"><strong>78.1</strong></td>
@@ -539,11 +539,11 @@ python code/train_target.py --gpu-id 0 --loss Relaxed_Contra --model resnet18 \
 </tbody>
 </table>
 
+## Train Source Embedding Network with Other Losses
 
 ## Evaluating Image Retrieval
 
-Follow the below steps to evaluate the trained model. 
-
+Follow the below steps to evaluate the trained model. \
 Trained best model will be saved in the `./logs/folder_name`.
 
 ```bash
@@ -558,10 +558,12 @@ python evaluate.py --gpu-id 0 \
 
 ## Acknowledgements
 
-Our code is modified and adapted on these great repositories:
+Our source code is modified and adapted on these great repositories:
 
 - [Proxy Anchor Loss for Deep Metric Learning](https://github.com/tjddus9597/Proxy-Anchor-CVPR2020)
 - [No Fuss Distance Metric Learning using Proxies](https://github.com/dichotomies/proxy-nca)
+- [Contrastive Representation Distillation](https://github.com/HobbitLong/RepDistiller)
+- [Relational Knowledge Distillation](https://github.com/lenscloth/RKD)
 - [PyTorch Metric learning](https://github.com/KevinMusgrave/pytorch-metric-learning)
 
 

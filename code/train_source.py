@@ -18,8 +18,8 @@ torch.manual_seed(seed)
 torch.cuda.manual_seed_all(seed) # set random seed for all gpus
 
 parser = argparse.ArgumentParser(description=
-    'Official implementation of `Proxy Anchor Loss for Deep Metric Learning`'  
-    + 'Our code is modified from `https://github.com/dichotomies/proxy-nca`')
+    'Official implementation of Embedding Transfer with Label Relaxation for Improved Metric Learning'  
+    + 'Our code is based on `https://github.com/dichotomies/proxy-nca`')
 
 parser.add_argument('--LOG_DIR',  default='./pretrained_source', help = 'Path to log')
 parser.add_argument('--save', default = 0, type = int, help = 'Save checkpoint or not')

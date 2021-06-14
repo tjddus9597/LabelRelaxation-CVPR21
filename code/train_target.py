@@ -21,7 +21,7 @@ torch.cuda.manual_seed_all(seed) # set random seed for all gpus
 
 parser = argparse.ArgumentParser(description=
     'Official implementation of Embedding Transfer with Label Relaxation for Improved Metric Learning'  
-    + 'Our code is modified from `https://github.com/tjddus9597/Proxy-Anchor-CVPR2020/`')
+    + 'Our code is based on `https://github.com/tjddus9597/Proxy-Anchor-CVPR2020/`')
 
 parser.add_argument('--LOG_DIR',  default='./logs', help = 'Path to log')
 parser.add_argument('--save', default = 0, type = int, help = 'Save checkpoint or not')

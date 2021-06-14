@@ -10,7 +10,7 @@ from tqdm import *
 
 parser = argparse.ArgumentParser(description=
     'Official implementation of `Embedding Transfer with Label Relaxation for Improved Metric Learning`'  
-    + 'Our code is modified from `https://github.com/tjddus9597/Proxy-Anchor-CVPR2020/`'
+    + 'Our code is based on `https://github.com/tjddus9597/Proxy-Anchor-CVPR2020/`'
 )
 parser.add_argument('--gpu-id', default = 0, type = int, help = 'ID of GPU that is used for training.')
 parser.add_argument('--workers', default = 20, type = int, dest = 'nb_workers', help = 'Number of workers for dataloader.')
