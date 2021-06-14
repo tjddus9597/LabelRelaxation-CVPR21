@@ -101,6 +101,16 @@ python code/train_target.py --gpu-id 0 --loss Relaxed_Contra --model bn_inceptio
 |RKD | BN<sup>512</sup> |70.9 |80.8| 87.5 |88.9 |93.5| 96.4| 78.5| 90.2| 96.0|
 |**Ours** | BN<sup>512</sup> | **72.1**  | **81.3** | **87.6** | **89.6** | **94.0** | **96.5** | **79.8** | **91.1** | **96.3** |
 
+<table>
+  <tr>
+    <td>One</td>
+    <td>Two</td>
+  </tr>
+  <tr>
+    <td colspan="2">Three</td>
+  </tr>
+</table>
+
 
 #### 2. Dimensionality Reduction Setting
 
