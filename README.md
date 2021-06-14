@@ -89,7 +89,7 @@ python code/train_target.py --gpu-id 0 --loss Relaxed_Contra --model bn_inceptio
 --view 2 --sigma 1 --save 1
 ```
 
-<!-- |   |  | |  **CUB** |    |  | **Cars** |  |  | **SOP** |  |
+|   |  | |  **CUB** |    |  | **Cars** |  |  | **SOP** |  |
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
 | Method | Backbone | R@1 | R@2 | R@4 | R@1 | R@2 | R@4 | R@1 | R@2 | R@4 |
 | *Source*: PA | BN<sup>512</sup> | 69.1 | 78.9 | 86.1 | 86.4 | 91.9 | 95.0 |79.2  |90.7  |96.2  |
@@ -99,22 +99,15 @@ python code/train_target.py --gpu-id 0 --loss Relaxed_Contra --model bn_inceptio
 |DarkRank | BN<sup>512</sup> | 66.7 |76.5 |84.8 |84.0 |90.0 |93.8 |75.7 |88.3 |95.3|
 |PKT | BN<sup>512</sup> |69.1 |78.8 |86.4 |86.4 |91.6|94.9| 78.4| 90.2 |96.0|
 |RKD | BN<sup>512</sup> |70.9 |80.8| 87.5 |88.9 |93.5| 96.4| 78.5| 90.2| 96.0|
-|**Ours** | BN<sup>512</sup> | **72.1**  | **81.3** | **87.6** | **89.6** | **94.0** | **96.5** | **79.8** | **91.1** | **96.3** | -->
+|**Ours** | BN<sup>512</sup> | **72.1**  | **81.3** | **87.6** | **89.6** | **94.0** | **96.5** | **79.8** | **91.1** | **96.3** |
 
 <table>
 <thead>
 <tr>
 <th align="center"colspan="2"></th>
-<!-- <th align="center"></th> -->
-<th align="center"colspan="3"><strong>CUB</strong></th>
-<!-- <th align="center"><strong>CUB</strong></th>
-<th align="center"></th> -->
-<th align="center"colspan="3"><strong>Cars</strong></th>
-<!-- <th align="center"><strong>Cars</strong></th>
-<th align="center"></th> -->
+<th align="center"colspan="3"><strong>CUB-200-2011</strong></th>
+<th align="center"colspan="3"><strong>Cars-196</strong></th>
 <th align="center"colspan="3"><strong>SOP</strong></th>
-<!-- <th align="center"><strong>SOP</strong></th> -->
-<!-- <th align="center"></th> -->
 </tr>
 </thead>
 <tbody>
