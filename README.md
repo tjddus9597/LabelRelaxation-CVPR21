@@ -379,7 +379,7 @@ python code/train_target.py --gpu-id 0 --loss Relaxed_Contra --model bn_inceptio
 </tbody>
 </table>
 
-### 3. Model compression Setting
+### Model Compression Setting
 - Transfer to a smaller network with a lower embedding dimension for usage in low-power and resource limited devices.
 - Source Embedding Network (ResNet50, 512 dim) 🠢 Target Embedding Network (ResNet18, 128 dim)
 
