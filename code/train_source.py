@@ -68,6 +68,9 @@ if args.gpu_id != -1:
 
 # Directory for Log
 LOG_DIR = args.LOG_DIR + '/{}'.format(args.model)
+LOG_DIR = os.path.abspath(LOG_DIR)
+DATA_DIR = os.path.abspath(args.DATA_DIR)
+
 # Wandb Initialization
 wandb.init(project=args.dataset + '_SourceEmbeddingTraining', notes=LOG_DIR, name=args.remark)
 wandb.config.update(args)
@@ -75,7 +78,7 @@ wandb.config.update(args)
 # Dataset Loader and Sampler
 trn_dataset = dataset.load(
         name = args.dataset,
-        root = args.DATA_DIR,
+        root = DATA_DIR,
         mode = 'train',
         transform = dataset.utils.make_transform(
             is_train = True, 
@@ -106,7 +109,7 @@ else:
 
 ev_dataset = dataset.load(
         name = args.dataset,
-        root = args.DATA_DIR,
+        root = DATA_DIR,
         mode = 'eval',
         transform = dataset.utils.make_transform(
             is_train = False, 

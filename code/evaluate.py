@@ -34,13 +34,13 @@ args = parser.parse_args()
 if args.gpu_id != -1:
     torch.cuda.set_device(args.gpu_id)
 
-os.chdir('../data/')
-data_root = os.getcwd()
+DATA_DIR = os.path.abspath(args.DATA_DIR)
+
 # Dataset Loader and Sampler
 
 ev_dataset = dataset.load(
         name = args.dataset,
-        root = data_root,
+        root = DATA_DIR,
         mode = 'eval',
         transform = dataset.utils.MultiTransforms(
             is_train = False, 

@@ -70,6 +70,7 @@ if args.gpu_id != -1:
 LOG_DIR = args.LOG_DIR + '/logs_{}/{}_{}_embedding{}_{}_lr{}_batch{}{}'.format(args.dataset, args.model, args.loss, args.sz_embedding, 
                                                                                args.optimizer, args.lr, args.sz_batch, args.remark)
 LOG_DIR = os.path.abspath(LOG_DIR)
+DATA_DIR = os.path.abspath(args.DATA_DIR)
 
 # Wandb Initialization
 wandb.init(project='EmbeddingTransfer', notes=LOG_DIR, name = args.remark)
@@ -78,7 +79,7 @@ wandb.config.update(args)
 # Dataset Loader and Sampler
 trn_dataset = dataset.load(
         name = args.dataset,
-        root = args.DATA_DIR,
+        root = DATA_DIR,
         mode = 'train',
         transform = dataset.utils.MultiTransforms(
             is_train = True, 
@@ -109,7 +110,7 @@ else:
 
 ev_dataset = dataset.load(
         name = args.dataset,
-        root = args.DATA_DIR,
+        root = DATA_DIR,
         mode = 'eval',
         transform = dataset.utils.make_transform(
             is_train = False, 
