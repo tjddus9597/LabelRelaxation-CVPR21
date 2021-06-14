@@ -5,7 +5,7 @@ Official PyTorch implementation of CVPR 2021 paper [**Embedding Transfer with La
 
 Embedding trnasfer with **Relaxed Contrastive Loss** improves performance, or reduces sizes and output dimensions of embedding model effectively.
 
-This repository provides source code of experiments on three datasets (CUB-200-2011, Cars-196 and Stanford Online Products) \
+This repository provides source code of experiments on three datasets (CUB-200-2011, Cars-196 and Stanford Online Products) 
 including **relaxed contrastive loss**, **relaxed MS loss**, and 6 other knowledge distillation or embedding transfer methods such as:
 - *FitNet*, Fitnets: hints for thin deep nets
 - *Attention*, Paying More Attention to Attention: Improving the Performance of Convolutional Neural Networks via Attention Transfer
