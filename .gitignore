@@ -1,0 +1,34 @@
+# : comments
+
+# Jupyter Notebook
+**/.ipynb_checkpoints
+
+# Cache Files
+**/.swp
+**/__pycache__/
+**/*.pyc
+
+# Image Files
+**/*.jpg
+**/*.JPG
+**/*.png
+**/*.PNG
+**/*.zip
+
+# Checkpoint Files
+**/*.pth
+
+# Ignore Folders
+save_target/
+logs/*
+data/*
+pretrained_models/*
+**/wandb/
+
+# Exception
+!.gitignore
+!README.md
+!misc/*
+!logs/.gitkeep
+!data/.gitkeep
+!pretrained_source/.gitkeep
