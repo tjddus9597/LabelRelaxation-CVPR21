@@ -89,18 +89,6 @@ python code/train_target.py --gpu-id 0 --loss Relaxed_Contra --model bn_inceptio
 --view 2 --sigma 1 --save 1
 ```
 
-|   |  | |  **CUB** |    |  | **Cars** |  |  | **SOP** |  |
-|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-| Method | Backbone | R@1 | R@2 | R@4 | R@1 | R@2 | R@4 | R@1 | R@2 | R@4 |
-| *Source*: PA | BN<sup>512</sup> | 69.1 | 78.9 | 86.1 | 86.4 | 91.9 | 95.0 |79.2  |90.7  |96.2  |
-|FitNet |BN<sup>512</sup>| 69.9 |79.5 |86.2| 87.6| 92.2 |95.6| 78.7 |90.4 |96.1|
-|Attention | BN<sup>512</sup> |66.3| 76.2 |84.5| 84.7| 90.6| 94.2| 78.2 |90.4| 96.2|
-|CRD | BN<sup>512</sup> |67.7 |78.1 |85.7 |85.3 |91.1 |94.8 |78.1 |90.2 |95.8|
-|DarkRank | BN<sup>512</sup> | 66.7 |76.5 |84.8 |84.0 |90.0 |93.8 |75.7 |88.3 |95.3|
-|PKT | BN<sup>512</sup> |69.1 |78.8 |86.4 |86.4 |91.6|94.9| 78.4| 90.2 |96.0|
-|RKD | BN<sup>512</sup> |70.9 |80.8| 87.5 |88.9 |93.5| 96.4| 78.5| 90.2| 96.0|
-|**Ours** | BN<sup>512</sup> | **72.1**  | **81.3** | **87.6** | **89.6** | **94.0** | **96.5** | **79.8** | **91.1** | **96.3** |
-
 <table>
 <thead>
 <tr>
@@ -265,17 +253,136 @@ python code/train_target.py --gpu-id 0 --loss Relaxed_Contra --model bn_inceptio
 --view 2 --sigma 1 --save 1
 ```
 
-|  |  |  | **CUB** |    |  | **Cars** |  |  | **SOP** |  |
-|-|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-| Method | Backbone | R@1 | R@2 | R@4 | R@1 | R@2 | R@4 | R@1 | R@2 | R@4 |
-| *Source*: PA | BN<sup>512</sup> | 69.1 | 78.9 | 86.1 | 86.4 | 91.9 | 95.0 |79.2  |90.7  |96.2  |
-|FitNet| BN<sup>64</sup>| 62.3| 73.8| 83.0 |81.2| 87.7 |92.5 |**76.6**| **89.3**|**95.4**|
-|Attention| BN<sup>64</sup>| 58.3| 69.4 |79.1| 79.2 |86.7| 91.8 |76.3 |89.2 |95.4|
-|CRD| BN<sup>64</sup>| 60.9 |72.7| 81.7| 79.2 |87.2| 92.1 |75.5 |88.3 |95.3|
-|DarkRank| BN<sup>64</sup>| 63.5| 74.3 |83.1| 78.1| 85.9| 91.1 |73.9| 87.5 |94.8|
-|PKT| BN<sup>64</sup>| 63.6 |75.8| 84.0 |82.2 |88.7| 93.5| 74.6 |87.3 |94.2|
-|RKD| BN<sup>64</sup>| 65.8 |76.7 |85.0 |83.7 |89.9 |94.1 |70.2 |83.8 |92.1|
-|**Ours**| BN<sup>64</sup>| **67.4** |**78.0**| **85.9**| **86.5** |**92.3**|**95.3**| 76.3 |88.6 |94.8|
+<table>
+<thead>
+<tr>
+<th></th>
+<th align="center"colspan="2"></th>
+<th align="center"colspan="3"><strong>CUB-200-2011</strong></th>
+<th align="center"colspan="3"><strong>Cars-196</strong></th>
+<th align="center"colspan="3"><strong>SOP</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Method</td>
+<td align="center">Backbone</td>
+<td align="center">R@1</td>
+<td align="center">R@2</td>
+<td align="center">R@4</td>
+<td align="center">R@1</td>
+<td align="center">R@2</td>
+<td align="center">R@4</td>
+<td align="center">R@1</td>
+<td align="center">R@2</td>
+<td align="center">R@4</td>
+</tr>
+<tr>
+<td><em>Source</em>: PA</td>
+<td align="center">BN<sup>512</sup></td>
+<td align="center">69.1</td>
+<td align="center">78.9</td>
+<td align="center">86.1</td>
+<td align="center">86.4</td>
+<td align="center">91.9</td>
+<td align="center">95.0</td>
+<td align="center">79.2</td>
+<td align="center">90.7</td>
+<td align="center">96.2</td>
+</tr>
+<tr>
+<td>FitNet</td>
+<td align="center">BN<sup>64</sup></td>
+<td align="center">62.3</td>
+<td align="center">73.8</td>
+<td align="center">83.0</td>
+<td align="center">81.2</td>
+<td align="center">87.7</td>
+<td align="center">92.5</td>
+<td align="center"><strong>76.6</strong></td>
+<td align="center"><strong>89.3</strong></td>
+<td align="center"><strong>95.4</strong></td>
+</tr>
+<tr>
+<td>Attention</td>
+<td align="center">BN<sup>64</sup></td>
+<td align="center">58.3</td>
+<td align="center">69.4</td>
+<td align="center">79.1</td>
+<td align="center">79.2</td>
+<td align="center">86.7</td>
+<td align="center">91.8</td>
+<td align="center">76.3</td>
+<td align="center">89.2</td>
+<td align="center">95.4</td>
+</tr>
+<tr>
+<td>CRD</td>
+<td align="center">BN<sup>64</sup></td>
+<td align="center">60.9</td>
+<td align="center">72.7</td>
+<td align="center">81.7</td>
+<td align="center">79.2</td>
+<td align="center">87.2</td>
+<td align="center">92.1</td>
+<td align="center">75.5</td>
+<td align="center">88.3</td>
+<td align="center">95.3</td>
+</tr>
+<tr>
+<td>DarkRank</td>
+<td align="center">BN<sup>64</sup></td>
+<td align="center">63.5</td>
+<td align="center">74.3</td>
+<td align="center">83.1</td>
+<td align="center">78.1</td>
+<td align="center">85.9</td>
+<td align="center">91.1</td>
+<td align="center">73.9</td>
+<td align="center">87.5</td>
+<td align="center">94.8</td>
+</tr>
+<tr>
+<td>PKT</td>
+<td align="center">BN<sup>64</sup></td>
+<td align="center">63.6</td>
+<td align="center">75.8</td>
+<td align="center">84.0</td>
+<td align="center">82.2</td>
+<td align="center">88.7</td>
+<td align="center">93.5</td>
+<td align="center">74.6</td>
+<td align="center">87.3</td>
+<td align="center">94.2</td>
+</tr>
+<tr>
+<td>RKD</td>
+<td align="center">BN<sup>64</sup></td>
+<td align="center">65.8</td>
+<td align="center">76.7</td>
+<td align="center">85.0</td>
+<td align="center">83.7</td>
+<td align="center">89.9</td>
+<td align="center">94.1</td>
+<td align="center">70.2</td>
+<td align="center">83.8</td>
+<td align="center">92.1</td>
+</tr>
+<tr>
+<td><strong>Ours</strong></td>
+<td align="center">BN<sup>64</sup></td>
+<td align="center"><strong>67.4</strong></td>
+<td align="center"><strong>78.0</strong></td>
+<td align="center"><strong>85.9</strong></td>
+<td align="center"><strong>86.5</strong></td>
+<td align="center"><strong>92.3</strong></td>
+<td align="center"><strong>95.3</strong></td>
+<td align="center">76.3</td>
+<td align="center">88.6</td>
+<td align="center">94.8</td>
+</tr>
+</tbody>
+</table>
 
 #### 3. Model compression Setting
 
@@ -310,17 +417,136 @@ python code/train_target.py --gpu-id 0 --loss Relaxed_Contra --model resnet18 \
 --view 2 --sigma 1 --save 1
 ```
 
-|  |  |  | **CUB** |    |  | **Cars** |  |  | **SOP** |  |
-|-|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-| Method | Backbone | R@1 | R@2 | R@4 | R@1 | R@2 | R@4 | R@1 | R@2 | R@4 |
-| *Source*: PA | R50<sup>512</sup> |69.9 |79.6 |88.6| 87.7| 92.7| 95.5 |80.5| 91.8| 98.8|
-|FitNet | R18<sup>128</sup>| 61.0 |72.2 |81.1 |78.5 |86.0| 91.4| 76.7| 89.4| 95.5|
-|Attention| R18<sup>128</sup>| 61.0| 71.7 |81.5 |78.6 |85.9| 91.0 |76.4 |89.3 |95.5|
-|CRD | R18<sup>128</sup>| 62.8| 73.8 |83.2 |80.6 |87.9 |92.5| 76.2| 88.9 |95.3|
-|DarkRank | R18<sup>128</sup>| 61.2| 72.5 |82.0 |75.3| 83.6| 89.4| 72.7 |86.7 |94.5|
-|PKT | R18<sup>128</sup>| 65.0 |75.6 |84.8| 81.6| 88.8| 93.4 |76.9| 89.2| 95.5|
-|RKD | R18<sup>128</sup>| 65.8| 76.3 |84.8 |84.2 |90.4| 94.3 |75.7 |88.4 |95.1|
-|**Ours** |R18<sup>128</sup> |**66.6** |**78.1**| **85.9**|**86.0**| **91.6**| **95.3** |**78.4**| **90.4** |**96.1**|
+<table>
+<thead>
+<tr>
+<th></th>
+<th align="center"colspan="2"></th>
+<th align="center"colspan="3"><strong>CUB-200-2011</strong></th>
+<th align="center"colspan="3"><strong>Cars-196</strong></th>
+<th align="center"colspan="3"><strong>SOP</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Method</td>
+<td align="center">Backbone</td>
+<td align="center">R@1</td>
+<td align="center">R@2</td>
+<td align="center">R@4</td>
+<td align="center">R@1</td>
+<td align="center">R@2</td>
+<td align="center">R@4</td>
+<td align="center">R@1</td>
+<td align="center">R@2</td>
+<td align="center">R@4</td>
+</tr>
+<tr>
+<td><em>Source</em>: PA</td>
+<td align="center">R50<sup>512</sup></td>
+<td align="center">69.9</td>
+<td align="center">79.6</td>
+<td align="center">88.6</td>
+<td align="center">87.7</td>
+<td align="center">92.7</td>
+<td align="center">95.5</td>
+<td align="center">80.5</td>
+<td align="center">91.8</td>
+<td align="center">98.8</td>
+</tr>
+<tr>
+<td>FitNet</td>
+<td align="center">R18<sup>128</sup></td>
+<td align="center">61.0</td>
+<td align="center">72.2</td>
+<td align="center">81.1</td>
+<td align="center">78.5</td>
+<td align="center">86.0</td>
+<td align="center">91.4</td>
+<td align="center">76.7</td>
+<td align="center">89.4</td>
+<td align="center">95.5</td>
+</tr>
+<tr>
+<td>Attention</td>
+<td align="center">R18<sup>128</sup></td>
+<td align="center">61.0</td>
+<td align="center">71.7</td>
+<td align="center">81.5</td>
+<td align="center">78.6</td>
+<td align="center">85.9</td>
+<td align="center">91.0</td>
+<td align="center">76.4</td>
+<td align="center">89.3</td>
+<td align="center">95.5</td>
+</tr>
+<tr>
+<td>CRD</td>
+<td align="center">R18<sup>128</sup></td>
+<td align="center">62.8</td>
+<td align="center">73.8</td>
+<td align="center">83.2</td>
+<td align="center">80.6</td>
+<td align="center">87.9</td>
+<td align="center">92.5</td>
+<td align="center">76.2</td>
+<td align="center">88.9</td>
+<td align="center">95.3</td>
+</tr>
+<tr>
+<td>DarkRank</td>
+<td align="center">R18<sup>128</sup></td>
+<td align="center">61.2</td>
+<td align="center">72.5</td>
+<td align="center">82.0</td>
+<td align="center">75.3</td>
+<td align="center">83.6</td>
+<td align="center">89.4</td>
+<td align="center">72.7</td>
+<td align="center">86.7</td>
+<td align="center">94.5</td>
+</tr>
+<tr>
+<td>PKT</td>
+<td align="center">R18<sup>128</sup></td>
+<td align="center">65.0</td>
+<td align="center">75.6</td>
+<td align="center">84.8</td>
+<td align="center">81.6</td>
+<td align="center">88.8</td>
+<td align="center">93.4</td>
+<td align="center">76.9</td>
+<td align="center">89.2</td>
+<td align="center">95.5</td>
+</tr>
+<tr>
+<td>RKD</td>
+<td align="center">R18<sup>128</sup></td>
+<td align="center">65.8</td>
+<td align="center">76.3</td>
+<td align="center">84.8</td>
+<td align="center">84.2</td>
+<td align="center">90.4</td>
+<td align="center">94.3</td>
+<td align="center">75.7</td>
+<td align="center">88.4</td>
+<td align="center">95.1</td>
+</tr>
+<tr>
+<td><strong>Ours</strong></td>
+<td align="center">R18<sup>128</sup></td>
+<td align="center"><strong>66.6</strong></td>
+<td align="center"><strong>78.1</strong></td>
+<td align="center"><strong>85.9</strong></td>
+<td align="center"><strong>86.0</strong></td>
+<td align="center"><strong>91.6</strong></td>
+<td align="center"><strong>95.3</strong></td>
+<td align="center"><strong>78.4</strong></td>
+<td align="center"><strong>90.4</strong></td>
+<td align="center"><strong>96.1</strong></td>
+</tr>
+</tbody>
+</table>
 
 
 ### Evaluating Image Retrieval
