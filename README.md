@@ -17,13 +17,13 @@ including **relaxed contrastive loss**, **relaxed MS loss**, and 6 other knowled
 ## Overview
 
 ### Relaxed Contrastive Loss
-- Relaxed contrastive loss exploits pairwise similarities between samples in the source embedding space as relaxed labels, \
+- Relaxed contrastive loss exploits pairwise similarities between samples in the source embedding space as relaxed labels, 
   and transfers them through a contrastive loss used for learning target embedding models.
   
 <p align="center"><img src="misc/overview.png" alt="graph" width="80%"></p>
 
 ### Experimental Restuls
-- Our method achieves the state of the art when embedding dimension is 512, and is as competitive as recent metric learning models \
+- Our method achieves the state of the art when embedding dimension is 512, and is as competitive as recent metric learning models 
   even with a substantially smaller embedding dimension. In all experiments, it is superior to other embedding transfer techniques. 
 
 <p align="center"><img src="misc/Recalls_ET.png" alt="graph" width="90%"></p>
