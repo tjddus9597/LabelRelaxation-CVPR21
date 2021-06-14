@@ -56,8 +56,10 @@ sh scripts/download_pretrained_source_models.sh
 ```
 
 ### Training Target Embedding Network with Relaxed Contrastive Loss
-#### 1. Self-transfer Setting: Transfer to a model with the same architecture and embedding dimension for performance improvement. \
-Transfer the knowledge of source embedding network (Inception-BN, 512 dim) to target embedding network (Inception-BN, 512 dim) using **Relaxed Contrastive Loss**.
+#### 1. Self-transfer Setting
+
+- **Self-transfer**: Transfer to a model with the same architecture and embedding dimension for performance improvement. \
+- Transfer the knowledge of source embedding network (Inception-BN, 512 dim) to target embedding network (Inception-BN, 512 dim) using **Relaxed Contrastive Loss**.
 
 - CUB-200-2011
 
