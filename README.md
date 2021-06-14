@@ -559,7 +559,7 @@ Trained best model will be saved in the `./logs/folder_name`.
 
 ```bash
 # The parameters should be changed according to the model to be evaluated.
-python evaluate.py --gpu-id 0 \
+python code/evaluate.py --gpu-id 0 \
                    --batch-size 120 \
                    --model bn_inception \
                    --embedding-size 512 \
