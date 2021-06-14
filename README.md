@@ -37,9 +37,7 @@ including **relaxed contrastive loss**, **relaxed MS loss**, and 6 other knowled
 - wandb
 - [Pytorch-Metric-Learning](https://github.com/KevinMusgrave/pytorch-metric-learning)
 
-## Getting Started
-
-### Prepare Datasets
+## Prepare Datasets
 
 1. Download three public benchmarks for deep metric learning.
    - [CUB-200-2011](http://www.vision.caltech.edu/visipedia-data/CUB-200/images.tgz)
@@ -48,22 +46,19 @@ including **relaxed contrastive loss**, **relaxed MS loss**, and 6 other knowled
 
 2. Extract the tgz or zip file into `./data/` (Exceptionally, for Cars-196, put the files in a `./data/cars196`)
 
-### Prepare Pretrained Source models
+## Prepare Pretrained Source models
 1. Download the pretrained source models.
 
 ```bash
 sh scripts/download_pretrained_source_models.sh
 ```
 
-### Training Target Embedding Network with Relaxed Contrastive Loss
-#### 1. Self-transfer Setting
+## Training Target Embedding Network with Relaxed Contrastive Loss
+### Self-transfer Setting
+- Transfer the knowledge of source model to target model with the same architecture and embedding dimension for performance improvement.
+- Source Embedding Network (Inception-BN, 512 dim) ⮕ Target Embedding Network (Inception-BN, 512 dim)
 
-**Self-transfer**: Transfer to a model with the same architecture and embedding dimension for performance improvement. 
-
-Transfer the knowledge of **source embedding network (Inception-BN, 512 dim)** to \
-**target embedding network (Inception-BN, 512 dim)** using *Relaxed Contrastive Loss*.
-
-- CUB-200-2011
+#### CUB-200-2011
 
 ```bash
 python code/train_target.py --gpu-id 0 --loss Relaxed_Contra --model bn_inception \
@@ -72,7 +67,7 @@ python code/train_target.py --gpu-id 0 --loss Relaxed_Contra --model bn_inceptio
 --view 2 --sigma 1 --save 1
 ```
 
-- Cars-196
+#### Cars-196
 
 ```bash
 python code/train_target.py --gpu-id 0 --loss Relaxed_Contra --model bn_inception \ 
@@ -81,7 +76,7 @@ python code/train_target.py --gpu-id 0 --loss Relaxed_Contra --model bn_inceptio
 --view 2 --sigma 1 --save 1
 ```
 
-- SOP
+#### SOP
 
 ```bash
 python code/train_target.py --gpu-id 0 --loss Relaxed_Contra --model bn_inception \
@@ -221,14 +216,12 @@ python code/train_target.py --gpu-id 0 --loss Relaxed_Contra --model bn_inceptio
 </table>
 
 
-#### 2. Dimensionality Reduction Setting
+### Dimensionality Reduction Setting
 
-**Dimensionality reduction**: Transfer to the same architecture with a lower embedding dimension for efficient image retrieval. 
+- Transfer to the same architecture with a lower embedding dimension for efficient image retrieval. 
+- Source Embedding Network (Inception-BN, 512 dim) ⮕ Target Embedding Network (Inception-BN, 64 dim)
 
-Transfer the knowledge of **source embedding network (Inception-BN, 512 dim)** to \
-**target embedding network (Inception-BN, 64 dim)** using *Relaxed Contrastive Loss*.
-
-- CUB-200-2011
+#### CUB-200-2011
 
 ```bash
 python code/train_target.py --gpu-id 0 --loss Relaxed_Contra --model bn_inception \
@@ -237,7 +230,7 @@ python code/train_target.py --gpu-id 0 --loss Relaxed_Contra --model bn_inceptio
 --view 2 --sigma 1 --save 1
 ```
 
-- Cars-196
+#### Cars-196
 
 ```bash
 python code/train_target.py --gpu-id 0 --loss Relaxed_Contra --model bn_inception \
@@ -246,7 +239,7 @@ python code/train_target.py --gpu-id 0 --loss Relaxed_Contra --model bn_inceptio
 --view 2 --sigma 1 --save 1
 ```
 
-- SOP
+#### SOP
 
 ```bash
 python code/train_target.py --gpu-id 0 --loss Relaxed_Contra --model bn_inception \
@@ -385,14 +378,11 @@ python code/train_target.py --gpu-id 0 --loss Relaxed_Contra --model bn_inceptio
 </tbody>
 </table>
 
-#### 3. Model compression Setting
+### 3. Model compression Setting
+- Transfer to a smaller network with a lower embedding dimension for usage in low-power and resource limited devices.
+- Source Embedding Network (ResNet50, 512 dim) ⮕ Target Embedding Network (ResNet18, 128 dim)
 
-**Model compression**: Transfer to a smaller network with a lower embedding dimension for usage in low-power and resource limited devices 
-
-Transfer the knowledge of **source embedding network (ResNet50, 512 dim)** to \
-**target embedding network (ResNet18, 128 dim)** using *Relaxed Contrastive Loss*.
-
-- CUB-200-2011
+#### CUB-200-2011
 
 ```bash
 python code/train_target.py --gpu-id 0 --loss Relaxed_Contra --model resnet18 \
@@ -401,7 +391,7 @@ python code/train_target.py --gpu-id 0 --loss Relaxed_Contra --model resnet18 \
 --view 2 --sigma 1 --save 1
 ```
 
-- Cars-196
+#### Cars-196
 
 ```bash
 python code/train_target.py --gpu-id 0 --loss Relaxed_Contra --model resnet18 \
@@ -410,7 +400,7 @@ python code/train_target.py --gpu-id 0 --loss Relaxed_Contra --model resnet18 \
 --view 2 --sigma 1 --save 1
 ```
 
-- SOP
+#### SOP
 
 ```bash
 python code/train_target.py --gpu-id 0 --loss Relaxed_Contra --model resnet18 \
@@ -550,7 +540,7 @@ python code/train_target.py --gpu-id 0 --loss Relaxed_Contra --model resnet18 \
 </table>
 
 
-### Evaluating Image Retrieval
+## Evaluating Image Retrieval
 
 Follow the below steps to evaluate the trained model. 
 
