@@ -47,7 +47,7 @@ including **relaxed contrastive loss**, **relaxed MS loss**, and 6 other knowled
 2. Extract the tgz or zip file into `./data/` (Exceptionally, for Cars-196, put the files in a `./data/cars196`)
 
 ## Prepare Pretrained Source models
-1. Download the pretrained source models.
+Download the pretrained source models using `./scripts/download_pretrained_source_models.sh`.
 
 ```bash
 sh scripts/download_pretrained_source_models.sh
@@ -55,34 +55,35 @@ sh scripts/download_pretrained_source_models.sh
 
 ## Training Target Embedding Network with Relaxed Contrastive Loss
 ### Self-transfer Setting
-Transfer the knowledge of source model to target model with the same architecture and embedding dimension for performance improvement. \
-Source Embedding Network (Inception-BN, 512 dim) 🠢 Target Embedding Network (Inception-BN, 512 dim)
+
+- Transfer the knowledge of source model to target model with the same architecture and embedding dimension for performance improvement.
+- Source Embedding Network (BN–Inception, 512 dim) 🠢 Target Embedding Network (BN–Inception, 512 dim)
 
 #### CUB-200-2011
 
 ```bash
 python code/train_target.py --gpu-id 0 --loss Relaxed_Contra --model bn_inception \
---embedding-size 512 --batch-size 90 --IPC 3 --dataset cub --epochs 90 \
+--embedding-size 512 --batch-size 90 --IPC 2 --dataset cub --epochs 90 \
 --source-ckpt ./pretrained_source/bn_inception/cub_bn_inception_512dim_Proxy_Anchor_ckpt.pth \
---view 2 --sigma 1 --save 1
+--view 2 --sigma 1 --delta 1 --save 1
 ```
 
 #### Cars-196
 
 ```bash
 python code/train_target.py --gpu-id 0 --loss Relaxed_Contra --model bn_inception \ 
---embedding-size 512 --batch-size 90 --IPC 3 --dataset cars --epochs 90 \
+--embedding-size 512 --batch-size 90 --IPC 2 --dataset cars --epochs 90 \
 --source-ckpt ./pretrained_source/bn_inception/cars_bn_inception_512dim_Proxy_Anchor_ckpt.pth \
---view 2 --sigma 1 --save 1
+--view 2 --sigma 1 --delta 1 --save 1
 ```
 
 #### SOP
 
 ```bash
 python code/train_target.py --gpu-id 0 --loss Relaxed_Contra --model bn_inception \
---embedding-size 512 --batch-size 90 --IPC 3 --dataset SOP --epochs 150 \
+--embedding-size 512 --batch-size 90 --IPC 2 --dataset SOP --epochs 150 \
 --source-ckpt ./pretrained_source/bn_inception/SOP_bn_inception_512dim_Proxy_Anchor_ckpt.pth \
---view 2 --sigma 1 --save 1
+--view 2 --sigma 1 --delta 1 --save 1
 ```
 
 <table>
@@ -218,34 +219,34 @@ python code/train_target.py --gpu-id 0 --loss Relaxed_Contra --model bn_inceptio
 
 ### Dimensionality Reduction Setting
 
-Transfer to the same architecture with a lower embedding dimension for efficient image retrieval. \
-Source Embedding Network (Inception-BN, 512 dim) 🠢 Target Embedding Network (Inception-BN, 64 dim)
+- Transfer to the same architecture with a lower embedding dimension for efficient image retrieval. 
+- Source Embedding Network (BN–Inception, 512 dim) 🠢 Target Embedding Network (BN–Inception, 64 dim)
 
 #### CUB-200-2011
 
 ```bash
 python code/train_target.py --gpu-id 0 --loss Relaxed_Contra --model bn_inception \
---embedding-size 64 --batch-size 90 --IPC 3 --dataset cub --epochs 90 \
+--embedding-size 64 --batch-size 90 --IPC 2 --dataset cub --epochs 90 \
 --source-ckpt ./pretrained_source/bn_inception/cub_bn_inception_512dim_Proxy_Anchor_ckpt.pth \
---view 2 --sigma 1 --save 1
+--view 2 --sigma 1 --delta 1 --save 1
 ```
 
 #### Cars-196
 
 ```bash
 python code/train_target.py --gpu-id 0 --loss Relaxed_Contra --model bn_inception \
---embedding-size 64 --batch-size 90 --IPC 3 --dataset cars --epochs 90 \
+--embedding-size 64 --batch-size 90 --IPC 2 --dataset cars --epochs 90 \
 --source-ckpt ./pretrained_source/bn_inception/cars_bn_inception_512dim_Proxy_Anchor_ckpt.pth \
---view 2 --sigma 1 --save 1
+--view 2 --sigma 1 --delta 1 --save 1
 ```
 
 #### SOP
 
 ```bash
 python code/train_target.py --gpu-id 0 --loss Relaxed_Contra --model bn_inception \
---embedding-size 64 --batch-size 90 --IPC 3 --dataset SOP --epochs 150 \
+--embedding-size 64 --batch-size 90 --IPC 2 --dataset SOP --epochs 150 \
 --source-ckpt ./pretrained_source/bn_inception/SOP_bn_inception_512dim_Proxy_Anchor_ckpt.pth \
---view 2 --sigma 1 --save 1
+--view 2 --sigma 1 --delta 1 --save 1
 ```
 
 <table>
@@ -379,34 +380,34 @@ python code/train_target.py --gpu-id 0 --loss Relaxed_Contra --model bn_inceptio
 </table>
 
 ### 3. Model compression Setting
-Transfer to a smaller network with a lower embedding dimension for usage in low-power and resource limited devices. \
-Source Embedding Network (ResNet50, 512 dim) 🠢 Target Embedding Network (ResNet18, 128 dim)
+- Transfer to a smaller network with a lower embedding dimension for usage in low-power and resource limited devices.
+- Source Embedding Network (ResNet50, 512 dim) 🠢 Target Embedding Network (ResNet18, 128 dim)
 
 #### CUB-200-2011
 
 ```bash
 python code/train_target.py --gpu-id 0 --loss Relaxed_Contra --model resnet18 \
---embedding-size 128 --batch-size 90 --IPC 3 --dataset cub --epochs 90 \
+--embedding-size 128 --batch-size 90 --IPC 2 --dataset cub --epochs 90 \
 --source-ckpt ./pretrained_source/resnet50/cub_resnet50_512dim_Proxy_Anchor_ckpt.pth \
---view 2 --sigma 1 --save 1
+--view 2 --sigma 1 --delta 1 --save 1
 ```
 
 #### Cars-196
 
 ```bash
 python code/train_target.py --gpu-id 0 --loss Relaxed_Contra --model resnet18 \
---embedding-size 128 --batch-size 90 --IPC 3 --dataset cars --epochs 90 \
+--embedding-size 128 --batch-size 90 --IPC 2 --dataset cars --epochs 90 \
 --source-ckpt ./pretrained_source/resnet50/cars_resnet50_512dim_Proxy_Anchor_ckpt.pth \
---view 2 --sigma 1 --save 1
+--view 2 --sigma 1 --delta 1 --save 1
 ```
 
 #### SOP
 
 ```bash
 python code/train_target.py --gpu-id 0 --loss Relaxed_Contra --model resnet18 \
---embedding-size 128 --batch-size 90 --IPC 3 --dataset SOP --epochs 150 \
+--embedding-size 128 --batch-size 90 --IPC 2 --dataset SOP --epochs 150 \
 --source-ckpt ./pretrained_source/resnet50/SOP_resnet50_512dim_Proxy_Anchor_ckpt.pth \
---view 2 --sigma 1 --save 1
+--view 2 --sigma 1 --delta 1 --save 1
 ```
 
 <table>
@@ -540,6 +541,16 @@ python code/train_target.py --gpu-id 0 --loss Relaxed_Contra --model resnet18 \
 </table>
 
 ## Train Source Embedding Network with Other Losses
+This repository also provides code for training source embedding network with several losses as well as proxy-anchor loss. \
+For details on how to train the source embedding network, please see the [**Proxy-Anchor Loss repository**](https://github.com/tjddus9597/Proxy-Anchor-CVPR2020).
+
+For example, training source embedding network (BN–Inception, 512 dim) with Proxy-Anchor Loss on the CUB-200-2011 as
+
+```bash
+python code/train_source.py --gpu-id 0 --loss Proxy_Anchor --model bn_inception \
+--embedding-size 512 --batch-size 180 --lr 1e-4 --dataset cub \
+--warm 1 --bn-freeze 1 --lr-decay-step 10 
+```
 
 ## Evaluating Image Retrieval
 

@@ -1,7 +1,7 @@
 import torch, math, argparse, os
 import numpy as np
 import random, dataset, utils, net
-import Relaxed_losses, CRD_loss, DML_losses, ET_losses
+import Relaxed_losses, CRD_loss, KD_losses, ET_losses, DML_losses
 
 from net.resnet import *
 from net.bn_inception import *
@@ -183,16 +183,14 @@ elif args.loss == 'FitNet':
         FitNet_criterions = [
             KD_losses.FitNet(576, 576).cuda(), 
             KD_losses.FitNet(1056, 1056).cuda(), 
-            KD_losses.FitNet(1024, 1024).cuda(), 
-            KD_losses.FitNet(args.sz_embedding, 512).cuda()
+            KD_losses.FitNet(1024, 1024).cuda()
         ]
     elif args.model == 'resnet18':
         FitNet_criterions = [
             KD_losses.FitNet(64, 256).cuda(), 
             KD_losses.FitNet(128, 512).cuda(), 
             KD_losses.FitNet(256, 1024).cuda(), 
-            KD_losses.FitNet(512, 2048).cuda(), 
-            KD_losses.FitNet(args.sz_embedding, 512).cuda()
+            KD_losses.FitNet(512, 2048).cuda()
         ]
 
 # Proxy Anchor loss
@@ -314,7 +312,7 @@ for epoch in range(0, args.nb_epochs):
         elif args.loss == 'FitNet':
             assert(len(t_feats)!=1 and len(s_feats)!=1)
             loss = FitNet_criterions[0](t_feats[0], s_feats[0]) + FitNet_criterions[1](t_feats[1], s_feats[1]) + \
-                    FitNet_criterions[2](t_feats[2], s_feats[2]) + FitNet_criterions[-1](t_feats, s_feats)
+                    FitNet_criterions[2](t_feats[2], s_feats[2])
             if args.model == 'resnet18':
                 loss += FitNet_criterions[3](t_feats[3], s_feats[3])
 

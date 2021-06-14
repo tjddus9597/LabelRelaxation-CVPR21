@@ -1,6 +1,6 @@
 import torch, math, argparse, os
 import numpy as np
-import random, dataset, utils, DML_losses, net
+import random, dataset, utils, net, DML_losses
 
 from net.resnet import *
 from net.bn_inception import *
