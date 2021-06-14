@@ -171,7 +171,7 @@ elif args.loss == 'RKD':
 elif args.loss == 'PKT':
     PKT_criterion = ET_losses.PKT().cuda()
 elif args.loss == 'DarkRank':
-    Hard_DarkRank_criterion = KD_losses.HardDarkRank()
+    Hard_DarkRank_criterion = ET_losses.HardDarkRank()
                     
 # Knowledge Distillation Losses
 elif args.loss == 'CRD':
