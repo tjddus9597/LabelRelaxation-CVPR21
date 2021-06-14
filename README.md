@@ -541,10 +541,10 @@ python code/train_target.py --gpu-id 0 --loss Relaxed_Contra --model resnet18 \
 </table>
 
 ## Train Source Embedding Network with Other Losses
-This repository also provides code for training source embedding network with several losses as well as proxy-anchor loss. \
+This repository also provides code for training source embedding network with several losses as well as proxy-anchor loss. 
 For details on how to train the source embedding network, please see the [**Proxy-Anchor Loss repository**](https://github.com/tjddus9597/Proxy-Anchor-CVPR2020).
 
-For example, training source embedding network (BN–Inception, 512 dim) with Proxy-Anchor Loss on the CUB-200-2011 as
+- For example, training source embedding network (BN–Inception, 512 dim) with Proxy-Anchor Loss on the CUB-200-2011 as
 
 ```bash
 python code/train_source.py --gpu-id 0 --loss Proxy_Anchor --model bn_inception \
