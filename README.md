@@ -219,7 +219,7 @@ python code/train_target.py --gpu-id 0 --loss Relaxed_Contra --model bn_inceptio
 ### Dimensionality Reduction Setting
 
 - Transfer to the same architecture with a lower embedding dimension for efficient image retrieval. 
-- Source Embedding Network (Inception-BN, 512 dim) ⮕ Target Embedding Network (Inception-BN, 64 dim)
+- Source Embedding Network (Inception-BN, 512 dim) ⇨ Target Embedding Network (Inception-BN, 64 dim)
 
 #### CUB-200-2011
 
