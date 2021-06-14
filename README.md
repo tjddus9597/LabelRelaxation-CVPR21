@@ -89,7 +89,7 @@ python code/train_target.py --gpu-id 0 --loss Relaxed_Contra --model bn_inceptio
 --view 2 --sigma 1 --save 1
 ```
 
-|<td colspan="2"> </td> |  | **CUB** |    |  | **Cars** |  |  | **SOP** |  |
+<!-- |   |  | |  **CUB** |    |  | **Cars** |  |  | **SOP** |  |
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
 | Method | Backbone | R@1 | R@2 | R@4 | R@1 | R@2 | R@4 | R@1 | R@2 | R@4 |
 | *Source*: PA | BN<sup>512</sup> | 69.1 | 78.9 | 86.1 | 86.4 | 91.9 | 95.0 |79.2  |90.7  |96.2  |
@@ -99,7 +99,144 @@ python code/train_target.py --gpu-id 0 --loss Relaxed_Contra --model bn_inceptio
 |DarkRank | BN<sup>512</sup> | 66.7 |76.5 |84.8 |84.0 |90.0 |93.8 |75.7 |88.3 |95.3|
 |PKT | BN<sup>512</sup> |69.1 |78.8 |86.4 |86.4 |91.6|94.9| 78.4| 90.2 |96.0|
 |RKD | BN<sup>512</sup> |70.9 |80.8| 87.5 |88.9 |93.5| 96.4| 78.5| 90.2| 96.0|
-|**Ours** | BN<sup>512</sup> | **72.1**  | **81.3** | **87.6** | **89.6** | **94.0** | **96.5** | **79.8** | **91.1** | **96.3** |
+|**Ours** | BN<sup>512</sup> | **72.1**  | **81.3** | **87.6** | **89.6** | **94.0** | **96.5** | **79.8** | **91.1** | **96.3** | -->
+
+<table>
+<thead>
+<tr>
+<th align="center"colspan="2"></th>
+<!-- <th align="center"></th> -->
+<th align="center"colspan="3"><strong>CUB</strong></th>
+<!-- <th align="center"><strong>CUB</strong></th>
+<th align="center"></th> -->
+<th align="center"colspan="3"><strong>Cars</strong></th>
+<!-- <th align="center"><strong>Cars</strong></th>
+<th align="center"></th> -->
+<th align="center"colspan="3"><strong>SOP</strong></th>
+<!-- <th align="center"><strong>SOP</strong></th> -->
+<!-- <th align="center"></th> -->
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Method</td>
+<td align="center">Backbone</td>
+<td align="center">R@1</td>
+<td align="center">R@2</td>
+<td align="center">R@4</td>
+<td align="center">R@1</td>
+<td align="center">R@2</td>
+<td align="center">R@4</td>
+<td align="center">R@1</td>
+<td align="center">R@2</td>
+<td align="center">R@4</td>
+</tr>
+<tr>
+<td align="center"><em>Source</em>: PA</td>
+<td align="center">BN<sup>512</sup></td>
+<td align="center">69.1</td>
+<td align="center">78.9</td>
+<td align="center">86.1</td>
+<td align="center">86.4</td>
+<td align="center">91.9</td>
+<td align="center">95.0</td>
+<td align="center">79.2</td>
+<td align="center">90.7</td>
+<td align="center">96.2</td>
+</tr>
+<tr>
+<td align="center">FitNet</td>
+<td align="center">BN<sup>512</sup></td>
+<td align="center">69.9</td>
+<td align="center">79.5</td>
+<td align="center">86.2</td>
+<td align="center">87.6</td>
+<td align="center">92.2</td>
+<td align="center">95.6</td>
+<td align="center">78.7</td>
+<td align="center">90.4</td>
+<td align="center">96.1</td>
+</tr>
+<tr>
+<td align="center">Attention</td>
+<td align="center">BN<sup>512</sup></td>
+<td align="center">66.3</td>
+<td align="center">76.2</td>
+<td align="center">84.5</td>
+<td align="center">84.7</td>
+<td align="center">90.6</td>
+<td align="center">94.2</td>
+<td align="center">78.2</td>
+<td align="center">90.4</td>
+<td align="center">96.2</td>
+</tr>
+<tr>
+<td align="center">CRD</td>
+<td align="center">BN<sup>512</sup></td>
+<td align="center">67.7</td>
+<td align="center">78.1</td>
+<td align="center">85.7</td>
+<td align="center">85.3</td>
+<td align="center">91.1</td>
+<td align="center">94.8</td>
+<td align="center">78.1</td>
+<td align="center">90.2</td>
+<td align="center">95.8</td>
+</tr>
+<tr>
+<td align="center">DarkRank</td>
+<td align="center">BN<sup>512</sup></td>
+<td align="center">66.7</td>
+<td align="center">76.5</td>
+<td align="center">84.8</td>
+<td align="center">84.0</td>
+<td align="center">90.0</td>
+<td align="center">93.8</td>
+<td align="center">75.7</td>
+<td align="center">88.3</td>
+<td align="center">95.3</td>
+</tr>
+<tr>
+<td align="center">PKT</td>
+<td align="center">BN<sup>512</sup></td>
+<td align="center">69.1</td>
+<td align="center">78.8</td>
+<td align="center">86.4</td>
+<td align="center">86.4</td>
+<td align="center">91.6</td>
+<td align="center">94.9</td>
+<td align="center">78.4</td>
+<td align="center">90.2</td>
+<td align="center">96.0</td>
+</tr>
+<tr>
+<td align="center">RKD</td>
+<td align="center">BN<sup>512</sup></td>
+<td align="center">70.9</td>
+<td align="center">80.8</td>
+<td align="center">87.5</td>
+<td align="center">88.9</td>
+<td align="center">93.5</td>
+<td align="center">96.4</td>
+<td align="center">78.5</td>
+<td align="center">90.2</td>
+<td align="center">96.0</td>
+</tr>
+<tr>
+<td align="center"><strong>Ours</strong></td>
+<td align="center">BN<sup>512</sup></td>
+<td align="center"><strong>72.1</strong></td>
+<td align="center"><strong>81.3</strong></td>
+<td align="center"><strong>87.6</strong></td>
+<td align="center"><strong>89.6</strong></td>
+<td align="center"><strong>94.0</strong></td>
+<td align="center"><strong>96.5</strong></td>
+<td align="center"><strong>79.8</strong></td>
+<td align="center"><strong>91.1</strong></td>
+<td align="center"><strong>96.3</strong></td>
+</tr>
+</tbody>
+</table>
 
 
 #### 2. Dimensionality Reduction Setting
