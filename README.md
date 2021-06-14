@@ -256,7 +256,6 @@ python code/train_target.py --gpu-id 0 --loss Relaxed_Contra --model bn_inceptio
 <table>
 <thead>
 <tr>
-<th></th>
 <th align="center"colspan="2"></th>
 <th align="center"colspan="3"><strong>CUB-200-2011</strong></th>
 <th align="center"colspan="3"><strong>Cars-196</strong></th>
@@ -420,7 +419,6 @@ python code/train_target.py --gpu-id 0 --loss Relaxed_Contra --model resnet18 \
 <table>
 <thead>
 <tr>
-<th></th>
 <th align="center"colspan="2"></th>
 <th align="center"colspan="3"><strong>CUB-200-2011</strong></th>
 <th align="center"colspan="3"><strong>Cars-196</strong></th>
