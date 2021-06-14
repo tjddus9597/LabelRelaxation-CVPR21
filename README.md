@@ -89,7 +89,7 @@ python code/train_target.py --gpu-id 0 --loss Relaxed_Contra --model bn_inceptio
 --view 2 --sigma 1 --save 1
 ```
 
-|  |  |  | **CUB** |    |  | **Cars** |  |  | **SOP** |  |
+|    ||  | **CUB** |    |  | **Cars** |  |  | **SOP** |  |
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
 | Method | Backbone | R@1 | R@2 | R@4 | R@1 | R@2 | R@4 | R@1 | R@2 | R@4 |
 | *Source*: PA | BN<sup>512</sup> | 69.1 | 78.9 | 86.1 | 86.4 | 91.9 | 95.0 |79.2  |90.7  |96.2  |

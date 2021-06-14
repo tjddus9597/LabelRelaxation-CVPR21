@@ -39,7 +39,7 @@ parser.add_argument('--epochs', default = 90, type = int, dest = 'nb_epochs', he
 parser.add_argument('--model', default = 'bn_inception', help = 'Model for training', 
                     choices=['bn_inception', 'resnet18', 'resnet50', 'resnet101']) 
 parser.add_argument('--loss', default = 'Relaxed_Contra', help = 'Criterion for training',
-                   choices=['Relaxed_Contra', 'Relaxed_MS', 'RKD', 'PKT', 'DarkRank', 'AT', 'FitNet', 'CRD'])
+                   choices=['Relaxed_Contra', 'Relaxed_MS', 'RKD', 'PKT', 'DarkRank', 'Attention', 'FitNet', 'CRD'])
 parser.add_argument('--optimizer', default = 'adamw', help = 'Optimizer setting')
 parser.add_argument('--lr', default = 1e-4, type =float, help = 'Learning rate setting')
 parser.add_argument('--weight-decay', default = 1e-4, type =float, help = 'Weight decay setting')
@@ -176,7 +176,7 @@ elif args.loss == 'DarkRank':
 # Knowledge Distillation Losses
 elif args.loss == 'CRD':
     CRD_criterion = CRD_loss.CRDLoss(sz_embed = args.sz_embedding, n_data = trn_dataset.__len__()).cuda()
-elif args.loss == 'AT':
+elif args.loss == 'Attention':
     AT_criterion = KD_losses.AttentionTransfer().cuda()
 elif args.loss == 'FitNet':
     if args.model == 'bn_inception':
@@ -210,7 +210,7 @@ if args.loss == 'FitNet':
     param_groups += fit_param_dict
                     
 # NOTE: KD methods require additional DML loss (this case, Proxy-Anchor)
-if args.loss in ['AT', 'FitNet', 'CRD']:
+if args.loss in ['Attention', 'FitNet', 'CRD']:
     param_groups.append({'params': ProxyAnchor_criterion.parameters(), 'lr':float(args.lr) * 100})
 
 # Optimizer Setting
@@ -305,7 +305,7 @@ for epoch in range(0, args.nb_epochs):
         elif args.loss == 'CRD':
             loss = CRD_criterion(t_feats[-1], s_feats[-1], index, contrast_idx)
                     
-        elif args.loss == 'AT':
+        elif args.loss == 'Attention':
             assert(len(t_feats)!=1 and len(s_feats)!=1)
             loss = AT_criterion(t_feats[0], s_feats[0]) + AT_criterion(t_feats[1], s_feats[1]) + AT_criterion(t_feats[2], s_feats[2])
             if args.model == 'resnet18':
@@ -319,7 +319,7 @@ for epoch in range(0, args.nb_epochs):
                 loss += FitNet_criterions[3](t_feats[3], s_feats[3])
 
         # NOTE: KD methods require additional DML loss
-        if args.loss in ['AT', 'FitNet', 'CRD']:
+        if args.loss in ['Attention', 'FitNet', 'CRD']:
             loss += ProxyAnchor_criterion(t_emb, y)
         
         opt.zero_grad()
