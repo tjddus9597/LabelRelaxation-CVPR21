@@ -20,13 +20,13 @@ including **relaxed contrastive loss**, **relaxed MS loss**, and 6 other knowled
 - Relaxed contrastive loss exploits pairwise similarities between samples in the source embedding space as relaxed labels, \
   and transfers them through a contrastive loss used for learning target embedding models.
   
-<p align="left"><img src="misc/overview.png" alt="graph" width="50%"></p>
+<p align="left"><img src="misc/overview.png" alt="graph" width="80%"></p>
 
 ### Experimental Restuls
 - Our method achieves the state of the art when embedding dimension is 512, and is as competitive as recent metric learning models \
   even with a substantially smaller embedding dimension. In all experiments, it is superior to other embedding transfer techniques. 
 
-<p align="left"><img src="misc/Recalls_ET.png" alt="graph" width="50%"></p>
+<p align="left"><img src="misc/Recalls_ET.png" alt="graph" width="80%"></p>
 
 ## Requirements
 
@@ -64,15 +64,19 @@ Transfer the knowledge of source embedding network (Inception-BN, 512 dim) to ta
 - CUB-200-2011
 
 ```bash
-python code/train_target.py --gpu-id 0 --loss Relaxed_Contra --model bn_inception --embedding-size 512 --batch-size 90 --IPC 3 --dataset cub --epochs 90 \
---source-ckpt ./pretrained_source/bn_inception/cub_bn_inception_512dim_Proxy_Anchor_ckpt.pth --view 2 --sigma 1 --save 1
+python code/train_target.py --gpu-id 0 --loss Relaxed_Contra --model bn_inception\
+--embedding-size 512 --batch-size 90 --IPC 3 --dataset cub --epochs 90 \
+--source-ckpt ./pretrained_source/bn_inception/cub_bn_inception_512dim_Proxy_Anchor_ckpt.pth\
+--view 2 --sigma 1 --save 1
 ```
 
 - Cars-196
 
 ```bash
-python code/train_target.py --gpu-id 0 --loss Relaxed_Contra --model bn_inception --embedding-size 512 --batch-size 90 --IPC 3 --dataset cars --epochs 90 \
---source-ckpt ./pretrained_source/bn_inception/cars_bn_inception_512dim_Proxy_Anchor_ckpt.pth --view 2 --sigma 1 --save 1
+python code/train_target.py --gpu-id 0 --loss Relaxed_Contra --model bn_inception\ 
+--embedding-size 512 --batch-size 90 --IPC 3 --dataset cars --epochs 90 \
+--source-ckpt ./pretrained_source/bn_inception/cars_bn_inception_512dim_Proxy_Anchor_ckpt.pth \
+--view 2 --sigma 1 --save 1
 ```
 
 - SOP
