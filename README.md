@@ -26,7 +26,7 @@ including **relaxed contrastive loss**, **relaxed MS loss**, and 6 other knowled
 - Our method achieves the state of the art when embedding dimension is 512, and is as competitive as recent metric learning models \
   even with a substantially smaller embedding dimension. In all experiments, it is superior to other embedding transfer techniques. 
 
-<p align="center"><img src="misc/Recalls_ET.png" alt="graph" width="80%"></p>
+<p align="center"><img src="misc/Recalls_ET.png" alt="graph" width="90%"></p>
 
 ## Requirements
 
@@ -56,9 +56,7 @@ sh scripts/download_pretrained_source_models.sh
 ```
 
 ### Training Target Embedding Network with Relaxed Contrastive Loss
-#### 1. Self-transfer Setting
-
-**Self-transfer**: Transfer to a model with the same architecture and embedding dimension for performance improvement. \
+#### 1. Self-transfer Setting: Transfer to a model with the same architecture and embedding dimension for performance improvement. \
 Transfer the knowledge of source embedding network (Inception-BN, 512 dim) to target embedding network (Inception-BN, 512 dim) using **Relaxed Contrastive Loss**.
 
 - CUB-200-2011
@@ -66,7 +64,7 @@ Transfer the knowledge of source embedding network (Inception-BN, 512 dim) to ta
 ```bash
 python code/train_target.py --gpu-id 0 --loss Relaxed_Contra --model bn_inception \
 --embedding-size 512 --batch-size 90 --IPC 3 --dataset cub --epochs 90 \
---source-ckpt ./pretrained_source/bn_inception/cub_bn_inception_512dim_Proxy_Anchor_ckpt.pth\
+--source-ckpt ./pretrained_source/bn_inception/cub_bn_inception_512dim_Proxy_Anchor_ckpt.pth \
 --view 2 --sigma 1 --save 1
 ```
 
