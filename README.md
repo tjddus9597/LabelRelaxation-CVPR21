@@ -409,7 +409,7 @@ python code/train_target.py --gpu-id 0 --loss Relaxed_Contra --model resnet18 \
 --source-ckpt ./pretrained_source/resnet50/SOP_resnet50_512dim_Proxy_Anchor_ckpt.pth \
 --view 2 --sigma 1 --delta 1 --save 1
 ```
-<center>
+<div align="center">
 <table>
 <thead>
 <tr>
@@ -539,7 +539,7 @@ python code/train_target.py --gpu-id 0 --loss Relaxed_Contra --model resnet18 \
 </tr>
 </tbody>
 </table>
-</center>    
+</div>    
 
 ## Train Source Embedding Network
 This repository also provides code for training source embedding network with several losses as well as proxy-anchor loss. 
