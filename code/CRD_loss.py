@@ -3,7 +3,6 @@ import torch.nn as nn
 import torch.nn.functional as F
 import math
 import random
-from pytorch_metric_learning import miners, losses
 
 # This implementation is adopted from CRD official github repo, https://github.com/HobbitLong/RepDistiller
 class CRDLoss(nn.Module):
@@ -20,12 +19,13 @@ class CRDLoss(nn.Module):
         opt.nce_m: the momentum for updating the memory buffer
         opt.n_data: the number of samples in the training set, therefor the memory buffer is: opt.n_data x opt.feat_dim
     """
-    def __init__(self, sz_embed, n_data):
+    def __init__(self, t_dim, s_dim, n_data):
         super(CRDLoss, self).__init__()
-        self.sz_embed = sz_embed
+        self.t_dim = t_dim
+        self.s_dim = s_dim
         self.n_data = n_data
-        self.embed_t = Embed(512, 128).cuda()
-        self.embed_s = Embed(512, 128).cuda()
+        self.embed_t = Embed(t_dim, 128).cuda()
+        self.embed_s = Embed(s_dim, 128).cuda()
         self.contrast = ContrastMemory(inputSize = 128, outputSize = n_data, K = 4096, T = 0.07, momentum = 0.5).cuda()
         self.criterion_t = ContrastLoss(n_data)
         self.criterion_s = ContrastLoss(n_data)

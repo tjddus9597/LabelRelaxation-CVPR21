@@ -540,7 +540,7 @@ python code/train_target.py --gpu-id 0 --loss Relaxed_Contra --model resnet18 \
 </tbody>
 </table>
 
-## Train Source Embedding Network with Other Losses
+## Train Source Embedding Network
 This repository also provides code for training source embedding network with several losses as well as proxy-anchor loss. 
 For details on how to train the source embedding network, please see the [**Proxy-Anchor Loss repository**](https://github.com/tjddus9597/Proxy-Anchor-CVPR2020).
 

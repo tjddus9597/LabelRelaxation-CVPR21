@@ -175,7 +175,9 @@ elif args.loss == 'DarkRank':
                     
 # Knowledge Distillation Losses
 elif args.loss == 'CRD':
-    CRD_criterion = CRD_loss.CRDLoss(sz_embed = args.sz_embedding, n_data = trn_dataset.__len__()).cuda()
+    t_dim = model_target.model.num_ftrs if args.gpu_id != -1 else model_target.module.model.num_ftrs
+    s_dim = model_source.model.num_ftrs if args.gpu_id != -1 else model_source.module.model.num_ftrs
+    CRD_criterion = CRD_loss.CRDLoss(t_dim = t_dim, s_dim = s_dim, n_data = trn_dataset.__len__() * args.view).cuda()
 elif args.loss == 'Attention':
     AT_criterion = KD_losses.AttentionTransfer().cuda()
 elif args.loss == 'FitNet':
@@ -270,6 +272,10 @@ for epoch in range(0, args.nb_epochs):
         if args.view > 1:
             x = torch.cat(x, dim=0)
             y = torch.cat([y]*args.view)
+            
+            if args.loss == 'CRD':
+                index = torch.cat([index]*args.view)
+                contrast_idx = torch.cat([contrast_idx]*args.view)
             
         # t_feats: feature-maps and last feature vector (output of last pooling layer) of target embedding model
         # t_emb: embedding vector of target embedding model
