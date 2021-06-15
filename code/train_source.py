@@ -67,7 +67,7 @@ LOG_DIR = os.path.abspath(LOG_DIR)
 DATA_DIR = os.path.abspath(args.DATA_DIR)
 
 # Wandb Initialization
-wandb.init(project=args.dataset + '_SourceEmbeddingTraining', notes=LOG_DIR, name=args.remark)
+wandb.init(project='Source_Pretraining', notes=LOG_DIR, name=args.remark)
 wandb.config.update(args)
 
 # Dataset Loader and Sampler
