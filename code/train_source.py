@@ -48,12 +48,7 @@ parser.add_argument('--lr-decay-gamma', default = 0.5, type =float, help = 'Lear
 parser.add_argument('--IPC', type = int, help = 'Balanced sampling, images per class')
 parser.add_argument('--bn-freeze', default = 0, type = int, help = 'Batch normalization parameter freeze')
 parser.add_argument('--warm', default = 0, type = int, help = 'Warmup training epochs')
-parser.add_argument('--target-norm', default = 0, type = int, help = 'Target model L2 normalization')
-parser.add_argument('--source-norm', default = 1, type = int, help = 'Source model L2 normalization')
-
-# For Embedding Transfer
-parser.add_argument('--source-ckpt', default = '', help = 'Loading checkpoint')
-parser.add_argument('--view', default = 1, type = int, help = 'Choose number of view for multi-view data augmentation')
+parser.add_argument('--l2-norm', default = 0, type = int, help = 'Model L2 normalization')
 
 # Hyperparameters of Proxy-Anchor Loss
 parser.add_argument('--alpha', default = 32, type = float, help = 'Scaling Parameter setting')
