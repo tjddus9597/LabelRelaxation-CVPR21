@@ -204,7 +204,7 @@ for epoch in range(0, args.nb_epochs):
     pbar = tqdm(enumerate(dl_tr))
 
     for batch_idx, (x, y) in pbar:
-        m = model(x.squeeze().cuda())
+        _, m = model(x.squeeze().cuda())
         loss = criterion(m, y.squeeze().cuda())
         
         opt.zero_grad()
