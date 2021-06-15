@@ -33,7 +33,7 @@ parser.add_argument('--dataset', default='cub', help = 'Training dataset, e.g. c
 # Optimization
 parser.add_argument('--embedding-size', default = 512, type = int, dest = 'sz_embedding', help = 'Size of embedding appended to backbone model')
 parser.add_argument('--batch-size', default = 90, type = int, dest = 'sz_batch', help = 'Number of samples per batch')
-parser.add_argument('--epochs', default = 90, type = int, dest = 'nb_epochs', help = 'Number of training epochs')
+parser.add_argument('--epochs', default = 60, type = int, dest = 'nb_epochs', help = 'Number of training epochs')
 parser.add_argument('--model', default = 'bn_inception', help = 'Model for training', 
                     choices=['bn_inception', 'resnet18', 'resnet50', 'resnet101']) 
 parser.add_argument('--loss', default = 'Proxy_Anchor', help = 'Criterion for training',
@@ -67,7 +67,7 @@ LOG_DIR = os.path.abspath(LOG_DIR)
 DATA_DIR = os.path.abspath(args.DATA_DIR)
 
 # Wandb Initialization
-wandb.init(project='Source_Pretraining', notes=LOG_DIR, name=args.remark)
+wandb.init(project='EmbeddingTransfer_Source', notes=LOG_DIR, name=args.remark)
 wandb.config.update(args)
 
 # Dataset Loader and Sampler
