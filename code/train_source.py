@@ -81,7 +81,7 @@ trn_dataset = dataset.load(
 )
 
 if args.IPC:
-    balanced_sampler = sampler.BalancedSampler(trn_dataset, batch_size=args.sz_batch, images_per_class = args.IPC)
+    balanced_sampler = sampler.ClassBalancedBatchSampler(trn_dataset, batch_size=args.sz_batch, images_per_class = args.IPC)
     batch_sampler = BatchSampler(balanced_sampler, batch_size = args.sz_batch, drop_last = True)
     dl_tr = torch.utils.data.DataLoader(
         trn_dataset,
