@@ -234,7 +234,7 @@ for epoch in range(0, args.nb_epochs):
                 k_list = [2**i for i in range(4)]
             else:
                 k_list = [10**i for i in range(4)]
-            Recalls = utils.evaluate_euclid(model_target, dl_ev, k_list, 5000)
+            Recalls = utils.evaluate_euclid(model, dl_ev, k_list, 5000)
                 
         # Logging Evaluation Score
         for i, k in enumerate(k_list):
@@ -247,8 +247,9 @@ for epoch in range(0, args.nb_epochs):
             best_epoch = epoch
             if not os.path.exists('{}'.format(LOG_DIR)):
                 os.makedirs('{}'.format(LOG_DIR))
-            torch.save({'model_state_dict':model_target.state_dict()}, '{}/{}_{}_{}dim_{}_ckpt.pth'.format(LOG_DIR, args.dataset, args.model, args.sz_embedding, args.loss))
-            with open('{}/{}_{}_best_results.txt'.format(LOG_DIR, args.dataset, args.model), 'w') as f:
+            torch.save({'model_state_dict':model.state_dict() if args.gpu_id != -1 else model.module.state_dict()}, 
+                       '{}/{}_{}_{}dim_{}_ckpt.pth'.format(LOG_DIR, args.dataset, args.model, args.sz_embedding, args.loss))
+            with open('{}/{}_{}_{}dim_{}_results.txt'.format(LOG_DIR, args.dataset, args.model, args.sz_embedding, args.loss), 'w') as f:
                 f.write('Best Epoch: {}\n'.format(best_epoch))
                 for i, k in enumerate(k_list):
                     f.write("Best Recall@{}: {:.4f}\n".format(k, best_recall[i] * 100))
