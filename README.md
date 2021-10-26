@@ -42,7 +42,7 @@ including **relaxed contrastive loss**, **relaxed MS loss**, and 6 other knowled
 1. Download three public benchmarks for deep metric learning.
    - [CUB-200-2011](http://www.vision.caltech.edu/visipedia-data/CUB-200/images.tgz)
    - Cars-196 ([Img](http://imagenet.stanford.edu/internal/car196/car_ims.tgz), [Annotation](http://imagenet.stanford.edu/internal/car196/cars_annos.mat))
-   - Stanford Online Products ([Link](https://cvgl.stanford.edu/projects/lifted_struct/))
+   - [Stanford Online Products](https://cvgl.stanford.edu/projects/lifted_struct/)
 
 2. Extract the tgz or zip file into `./data/` (Exceptionally, for Cars-196, put the files in a `./data/cars196`)
 
