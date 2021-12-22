@@ -23,7 +23,7 @@ class RKdAngle(nn.Module):
     def forward(self, t_emb, s_emb):
         with torch.no_grad():
             sd = (s_emb.unsqueeze(0) - s_emb.unsqueeze(1))
-            norm_sd = F.normalize(td, p=2, dim=2)
+            norm_sd = F.normalize(sd, p=2, dim=2)
             s_angle = torch.bmm(norm_sd, norm_sd.transpose(1, 2)).view(-1)
 
         td = (t_emb.unsqueeze(0) - t_emb.unsqueeze(1))
@@ -54,7 +54,7 @@ class PKT(nn.Module):
         super(PKT, self).__init__()
         self.eps = 0.0000001
 
-    def forward(t_emb, s_emb):
+    def forward(self, t_emb, s_emb):
         # Normalize each vector by its norm
         t_norm = torch.sqrt(torch.sum(t_emb ** 2, dim=1, keepdim=True))
         t_emb = t_emb / (t_norm + self.eps)
@@ -65,8 +65,8 @@ class PKT(nn.Module):
         s_emb[s_emb != s_emb] = 0
 
         # Calculate the cosine similarity
-        t_similarity = torch.mm(t_emb, target.transpose(0, 1))
-        s_similarity = torch.mm(s_emb, source.transpose(0, 1))
+        t_similarity = torch.mm(t_emb, t_emb.transpose(0, 1))
+        s_similarity = torch.mm(s_emb, s_emb.transpose(0, 1))
 
         # Scale cosine similarity to 0..1
         t_similarity = (t_similarity + 1.0) / 2.0
